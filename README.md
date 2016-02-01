@@ -1,6 +1,6 @@
 # Disgord
 
-Disgord is primarily used as a test tool for the [Discordgo](https://github.com/bwmarrin/discordgo) package that provides Go bindings for the Discord Chat API.
+Disgord is primarily used as a test tool for the [Discordgo](https://github.com/bwmarrin/discordgo) package.  Discordgo provides Go bindings for the Discord Chat API.
 
 This is currently a placeholder.
 
