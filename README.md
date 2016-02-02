@@ -1,14 +1,11 @@
-# Disgord
+## Disgord
 
 Disgord is primarily used as a test tool for the [Discordgo](https://github.com/bwmarrin/discordgo) package.  Discordgo provides Go bindings for the Discord Chat API.
-
-This is currently a placeholder.
 
 Join [#go_discordgo](https://discord.gg/0SBTUU1wZTWT6sqd) Discord API channel on Discord for support.
 
 
-
-# Goals
+## Goals
 
 The main goal is to develop a scriptable and easily extendable Discord client 
 that can be used as a bot framework, a console client, a Discord bot, and as the
