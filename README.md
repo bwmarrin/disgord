@@ -40,8 +40,8 @@ Placeholder
 Because of that there may be major changes to library functions, constants,
 and structures.
 
-- [![GoDoc](https://godoc.org/github.com/bwmarrin/discordgo?status.svg)](https://godoc.org/github.com/bwmarrin/discordgo) 
-- [![Go Walker](http://gowalker.org/api/v1/badge)](https://gowalker.org/github.com/bwmarrin/discordgo) 
+- [![GoDoc](https://godoc.org/github.com/bwmarrin/disgord?status.svg)](https://godoc.org/github.com/bwmarrin/disgord) 
+- [![Go Walker](http://gowalker.org/api/v1/badge)](https://gowalker.org/github.com/bwmarrin/disgord) 
 
 
 ## Examples
