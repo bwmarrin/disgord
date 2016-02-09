@@ -32,6 +32,7 @@ type Disgord struct {
 	Debug     bool               // enable Disgord debugging
 	Config    config             // Disgord configurable settings
 	Commands  map[string]Command // Map of commands
+	Hooks     map[string][]Hook  // Map of event hooks
 	startTime time.Time          // Time Disgord started
 
 	// Discord Connection
