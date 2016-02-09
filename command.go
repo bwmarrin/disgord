@@ -9,12 +9,7 @@
 
 package disgord
 
-import (
-	"fmt"
-	"sort"
-	"strconv"
-	"strings"
-)
+import "strings"
 
 // A Command struct holds information about an individual command
 // or a domain of commands (see Command.Commands)
