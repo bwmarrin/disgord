@@ -33,7 +33,7 @@ type Disgord struct {
 	Config    config             // Disgord configurable settings
 	Commands  map[string]Command // Map of commands
 	Hooks     map[string][]Hook  // Map of event hooks
-	startTime time.Time          // Time Disgord started
+	StartTime time.Time          // Time Disgord started
 
 	// Discord Connection
 	Discord *discordgo.Session // Discord session
@@ -45,7 +45,7 @@ type Disgord struct {
 func (dg *Disgord) Run() {
 
 	// Log startup time
-	dg.startTime = time.Now()
+	dg.StartTime = time.Now()
 
 	// Set Configuration Defaults
 	dg.Config.CommandPrefix = "-dg "
@@ -65,12 +65,6 @@ func (dg *Disgord) Run() {
 		Help:        "",
 		Description: "About this program",
 		Callback:    about,
-	}
-
-	dg.Commands["stats"] = Command{
-		Help:        "",
-		Description: "Display program statistics",
-		Callback:    stats,
 	}
 
 	// TODO: Load JSON based configuration file
