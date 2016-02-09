@@ -11,13 +11,9 @@ package disgord
 
 import (
 	"fmt"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
-	"time"
-
-	"github.com/bwmarrin/discordgo"
 )
 
 // A Command struct holds information about an individual command
@@ -111,36 +107,4 @@ func about(dg *Disgord, m *Message) string {
 	return "\n" +
 		"Disgord " + VERSION + " (github.com/bwmarrin/Disgord)\n" +
 		"Owner is <@" + dg.Config.OwnerID + ">\n"
-}
-
-func stats(dg *Disgord, m *Message) (msg string) {
-
-	var mem runtime.MemStats
-	runtime.ReadMemStats(&mem)
-
-	msg = "```\n" +
-		fmt.Sprintf("Disgord      : %s\n", VERSION) +
-		fmt.Sprintf("DiscordGo    : v%s\n", discordgo.VERSION) +
-		fmt.Sprintf("Uptime       : %s\n", time.Now().Sub(dg.startTime)) +
-		fmt.Sprintf("Processes    : %d\n", runtime.NumGoroutine()) +
-		fmt.Sprintf("HeapAlloc    : %.2fMB\n", float64(mem.HeapAlloc)/1048576) +
-		fmt.Sprintf("Total Sys    : %.2fMB\n", float64(mem.Sys)/1048576)
-
-	if dg.Discord.StateEnabled && dg.Discord.State != nil {
-		guilds := len(dg.Discord.State.Guilds)
-		channels := 0
-		members := 0
-		for _, v := range dg.Discord.State.Guilds {
-			channels += len(v.Channels)
-			members += len(v.Members)
-		}
-
-		msg += fmt.Sprintf("Guilds       : %d\n", guilds)
-		msg += fmt.Sprintf("Channels     : %d\n", channels)
-		msg += fmt.Sprintf("Members      : %d\n", members)
-	}
-
-	msg += "```"
-
-	return
 }
