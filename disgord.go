@@ -29,11 +29,12 @@ type Disgord struct {
 	sync.Mutex
 
 	// Digord Application data
-	Debug     bool               // enable Disgord debugging
-	Config    config             // Disgord configurable settings
-	Commands  map[string]Command // Map of commands
-	Hooks     map[string][]Hook  // Map of event hooks
-	StartTime time.Time          // Time Disgord started
+	Debug          bool               // enable Disgord debugging
+	Config         config             // Disgord configurable settings
+	DefaultCommand *Command           // Default command when called with invalid command
+	Commands       map[string]Command // Map of commands
+	Hooks          map[string][]Hook  // Map of event hooks
+	StartTime      time.Time          // Time Disgord started
 
 	// Discord Connection
 	Discord *discordgo.Session // Discord session

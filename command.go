@@ -58,5 +58,7 @@ func (dg *Disgord) parse(msg *Message) string {
 		return c.Callback(dg, msg)
 	}
 
-	return "Unknown command, try help"
+	if dg.DefaultCommand != nil {
+		return dg.DefaultCommand.Callback
+	}
 }
