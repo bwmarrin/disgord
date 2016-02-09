@@ -54,19 +54,6 @@ func (dg *Disgord) Run() {
 	dg.Commands = make(map[string]Command)
 	//dg.Hooks = make(map[string]Hook)
 
-	// Register Built-In Commands
-	dg.Commands["help"] = Command{
-		Help:        "[<command>]",
-		Description: "This help message, or help for a specific command",
-		Callback:    help,
-	}
-
-	dg.Commands["about"] = Command{
-		Help:        "",
-		Description: "About this program",
-		Callback:    about,
-	}
-
 	// TODO: Load JSON based configuration file
 
 	// Parse Run Commands file and execute each Command.
