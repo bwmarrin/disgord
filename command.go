@@ -59,6 +59,8 @@ func (dg *Disgord) parse(msg *Message) string {
 	}
 
 	if dg.DefaultCommand != nil {
-		return dg.DefaultCommand.Callback
+		return dg.DefaultCommand.Callback(dg, msg)
 	}
+
+	return ""
 }
