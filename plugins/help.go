@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/bwmarrin/disgord/bot"
+	"github.com/bwmarrin/disgord"
 	"sort"
 	"strconv"
 )
@@ -11,22 +11,22 @@ func init() {
 	Bot.AddCommand("help", "Display this message.", help)
 }
 
-func help(b *bot.Bot, m *bot.Message) bool {
+func help(bot *disgord.Bot, msg *disgord.Message) bool {
 
 	// Set command prefix to display.
 	cp := ""
-	if m.IsPrivate {
+	if msg.IsPrivate {
 		cp = ""
-	} else if m.HasPrefix {
+	} else if msg.HasPrefix {
 		cp = "-dg " // TODO: use per-guild user defined value
 	} else {
-		cp = fmt.Sprintf("@%s ", Bot.Name)
+		cp = fmt.Sprintf("@%s ", Bot.Username)
 	}
 
 	// Sort commands
 	maxlen := 0
 	keys := make([]string, 0, len(Bot.Commands))
-	cmdmap := make(map[string]*bot.Command)
+	cmdmap := make(map[string]*disgord.Command)
 
 	for _, v := range Bot.Commands {
 
@@ -57,7 +57,7 @@ func help(b *bot.Bot, m *bot.Message) bool {
 	sort.Strings(keys)
 
 	// TODO: Learn more link needs to be configurable
-	resp := "\n*Commands can be abbreviated and mixed with other text.  Learn more at <https://github.com/bwmarrin/disgord>*\n"
+	resp := "\n*Commands can be abbreviated and mixed with other text.  Learn more at <https://githubot.com/bwmarrin/disgord>*\n"
 	resp += "```autoit\n"
 
 	v, ok := cmdmap["help"]
@@ -78,7 +78,7 @@ func help(b *bot.Bot, m *bot.Message) bool {
 
 	resp += "```\n"
 
-	b.ChannelMessageSend(m.ChannelID, resp)
+	bot.Session.ChannelMessageSend(msg.ChannelID, resp)
 
 	return true
 }

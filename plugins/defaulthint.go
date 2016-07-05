@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bwmarrin/disgord/bot"
+	"github.com/bwmarrin/disgord"
 )
 
 func init() {
@@ -9,17 +9,17 @@ func init() {
 	Bot.DefaultCommand = cmd
 }
 
-func hint(b *bot.Bot, m *bot.Message) bool {
+func hint(bot *disgord.Bot, msg *disgord.Message) bool {
 
 	var resp string
 
-	if m.IsPrivate {
+	if msg.IsPrivate {
 		resp = "Try entering **help** to see a list of commands this bot supports."
 	} else {
-		resp = "Try entering **@" + b.Name + " help** to see a list of commands this bot supports."
+		resp = "Try entering **@" + bot.Username + " help** to see a list of commands this bot supports."
 	}
 
-	b.ChannelMessageSend(m.ChannelID, resp)
+	bot.Session.ChannelMessageSend(msg.ChannelID, resp)
 
 	return true
 }

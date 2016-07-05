@@ -5,9 +5,9 @@
 // easily add extra features to a Disgord Bot.
 package main
 
-import "github.com/bwmarrin/disgord/bot"
+import "github.com/bwmarrin/disgord"
 
-var Bot = bot.New()
+var Bot = disgord.New()
 
 func main() {
 }

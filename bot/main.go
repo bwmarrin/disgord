@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/bwmarrin/disgord/bot"
+	"github.com/bwmarrin/disgord"
 )
 
 const (
@@ -16,15 +16,15 @@ const (
 )
 
 var (
-	Bot = bot.New()
+	Bot = disgord.New()
 )
 
 func init() {
 
 	// Get Bot Token
-	Bot.Token = os.Getenv("DG_TOKEN")
-	if Bot.Token == "" {
-		flag.StringVar(&Bot.Token, "t", "", "Discord token.")
+	Bot.Session.Token = os.Getenv("DG_TOKEN")
+	if Bot.Session.Token == "" {
+		flag.StringVar(&Bot.Session.Token, "t", "", "Discord token.")
 	}
 
 }
@@ -43,7 +43,7 @@ func main() {
 
 	// Connect to Discord if a Token exists.
 	// TODO: Make Optional
-	if Bot.Token != "" {
+	if Bot.Session.Token != "" {
 		err = Bot.Open()
 		if err != nil {
 			log.Println("error opening connection to Discord: ", err)

@@ -1,4 +1,4 @@
-package bot
+package disgord
 
 import (
 	"fmt"
@@ -77,16 +77,16 @@ func (b *Bot) onMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 	}
 
 	// Fetch the channel for this Message
-	c, err = b.State.Channel(mc.ChannelID)
+	c, err = ds.State.Channel(mc.ChannelID)
 	if err != nil {
 		// Try fetching via REST API
-		c, err = b.Channel(mc.ChannelID)
+		c, err = ds.Channel(mc.ChannelID)
 		if err != nil {
 			log.Printf("unable to fetch Channel for Message")
 			return
 		}
 		// Attempt to add this channel into our State
-		err = b.State.ChannelAdd(c)
+		err = ds.State.ChannelAdd(c)
 		if err != nil {
 			log.Printf("error updating State with Channel")
 		}

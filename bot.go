@@ -1,6 +1,6 @@
-// bot is a very simple wrapper around the discordgo package with a few extra
+// disgord is a very simple wrapper around the discordgo package with a few extra
 // features added for writing Bots with the Disgord Bot "framework".
-package bot
+package disgord
 
 import (
 	"fmt"
@@ -8,17 +8,12 @@ import (
 )
 
 type Bot struct {
+
 	// include discordgo Session
-	*discordgo.Session
+	Session *discordgo.Session
 
-	// The account ID that the Bot is authenticated as
-	ID string
-
-	// The name of the Bot account
-	Name string
-
-	// The nick of the bot account
-	Nick string
+	// Bot user info
+	*discordgo.User
 
 	// The account of a "admin" or "owner" of this Bot
 	Owner *discordgo.User
@@ -42,19 +37,18 @@ func (b *Bot) Open() error {
 
 	var err error
 
-	if b.Token == "" {
+	if b.Session.Token == "" {
 		return fmt.Errorf("no token")
 	}
 
 	// verify the token and grab user ID
-	user, err := b.User("@me")
+	user, err := b.Session.User("@me")
 	if err != nil {
 		return err
 	}
-	b.ID = user.ID
-	b.Name = user.Username
+	b.User = user
 
-	b.AddHandler(b.onMessageCreate)
+	b.Session.AddHandler(b.onMessageCreate)
 
 	err = b.Session.Open()
 

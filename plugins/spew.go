@@ -11,7 +11,7 @@ import (
 )
 
 func init() {
-	Bot.AddHandler(onEvent)
+	Bot.Session.AddHandler(onEvent)
 }
 
 func onEvent(s *discordgo.Session, e *discordgo.Event) {
