@@ -13,7 +13,7 @@ If you would like to help the discordgo and disgord packages please use
 [this link](https://discordapp.com/oauth2/authorize?client_id=173113690092994561&scope=bot)
 to add **dgo** to your server. This provides tremendous help to both packages!
 
-**For help with this package or general Go discussion, please join the [Discord 
+**For help with this program or general Go discussion, please join the [Discord 
 Gophers](https://discord.gg/0f1SbxBZjYq9jLBk) chat server.**
 
 ## Getting Started
