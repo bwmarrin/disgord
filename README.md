@@ -2,12 +2,9 @@
 Disgord
 ====
 
-Dis**go**rd is a Discord Bot wrote in Google [Go](https://golang.org/) using the [discordgo](https://github.com/bwmarrin/discordgo) package.
+Dis**go**rd is an easy to use and extensible Discord Bot using the [discordgo](https://github.com/bwmarrin/discordgo) library.
 
-This project aims to create a simple example of building a Discord Bot with the
-discordgo pacakge. At this point there isn't much here but a basic outline.
-
-**NOTE** This package is used by the **dgo** bot which is the official test bot 
+**NOTE** This is used by the **dgo** bot which is the official test bot 
 for the discordgo package. If this bot is in your server, allowing it to remain
 provides indispensable testing of the discordgo package. **Thank you very very much** 
 for helping to make Discord and DiscordGo great.
@@ -16,30 +13,40 @@ If you would like to help the discordgo and disgord packages please use
 [this link](https://discordapp.com/oauth2/authorize?client_id=173113690092994561&scope=bot)
 to add **dgo** to your server. This provides tremendous help to both packages!
 
-[![Discord Gophers](https://img.shields.io/badge/Discord%20Gophers-%23discordgo-blue.svg)](https://discord.gg/0f1SbxBZjYoCtNPP)
-Join the Discord Gophers server for support and general Google Go discussion.
+**For help with this package or general Go discussion, please join the [Discord 
+Gophers](https://discord.gg/0f1SbxBZjYq9jLBk) chat server.**
 
 ## Getting Started
 
-### Installing
-
-This assumes you already have a working Go environment, if not please see
+The below assumes you already have a working Go environment, if not please see
 [this page](https://golang.org/doc/install) first.
 
+### Installing
+
 ```sh
-go get github.com/bwmarrin/disgord
-go install github.com/bwmarrin/disgord
+git clone https://github.com/bwmarrin/disgord.git
+cd disgord
+```
+
+### Plugins
+
+The plugins folder contains several plugins you can add to your bot, just
+copy (or create symbolic links) of these files into the folder with the main.go
+file to use them.  Some of them have a dependency on other plugins so please
+check the documentation for each plugin.
+
+
+### Compiling
+
+When ready you can compile Disgord like any Go program.
+
+```sh
+go build 
 ```
 
 
-### Usage
-
-The below command assumes your GOPATH/bin is part of your shell path. If not
-change into the GOPATH/bin folder.  You may also copy the compiled disgord
-executable into any custom folder for use.
+### Start Disgord
 
 ```go
-DG_TOKEN=BOT_TOKEN_HERE disgord 
+./disgord -t BOT_TOKEN_HERE
 ```
-
-
