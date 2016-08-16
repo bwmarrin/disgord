@@ -24,6 +24,7 @@ The below assumes you already have a working Go environment, if not please see
 ### Installing
 
 ```sh
+go get github.com/bwmarrin/discordgo
 git clone https://github.com/bwmarrin/disgord.git
 cd disgord
 ```
