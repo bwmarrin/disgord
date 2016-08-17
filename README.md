@@ -15,3 +15,11 @@ Gophers](https://discord.gg/0f1SbxBZjYq9jLBk) chat server.**
 
 The below assumes you already have a working Go environment, if not please see
 [this page](https://golang.org/doc/install) first.
+
+```sh
+go get github.com/bwmarrin/discordgo
+get clone github.com/bwmarrin/disgord
+cd disgord
+go build
+./disgord -t BOT_AUTH_TOKEN
+```
