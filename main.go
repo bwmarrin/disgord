@@ -14,10 +14,10 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-// Declare a constant that stores the Disgord version information.
+// Version is a constant that stores the Disgord version information.
 const Version = "v0.0.0-alpha"
 
-// Declare a DiscordGo Session in the global space so it can be easily used
+// Session is declared in the global space so it can be easily used
 // throughout this program.
 // In this use case, there is no error that would be returned.
 var Session, _ = discordgo.New()
