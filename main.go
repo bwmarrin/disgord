@@ -22,7 +22,7 @@ const Version = "v0.0.0-alpha"
 // In this use case, there is no error that would be returned.
 var Session, _ = discordgo.New()
 
-// Read it all configuration options from both environment variables and
+// Read in all configuration options from both environment variables and
 // command line arguments.
 func init() {
 
