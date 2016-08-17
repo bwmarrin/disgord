@@ -1,3 +1,4 @@
+<img align="right" src="https://raw.githubusercontent.com/wiki/bwmarrin/disgord/images/gourd.jpg">
 Disgord
 ====
 
