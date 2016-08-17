@@ -2,8 +2,9 @@
 Disgord
 ====
 
-Dis**go**rd is an starting point for creating a Discord bot using 
-the [discordgo](https://github.com/bwmarrin/discordgo) library.
+Dis**go**rd is an example/starting point for creating an easy to use and 
+extensible Discord bot using the [discordgo](https://github.com/bwmarrin/discordgo) 
+library.
 
 Currently, this is mostly a place holder project.
 
