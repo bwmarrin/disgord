@@ -47,7 +47,7 @@ type Mux struct {
 func New() *Mux {
 	m := &Mux{}
 	m.Prefix = "-dg "
-	return &Mux{}
+	return m
 }
 
 // Route allows you to register a route
@@ -166,7 +166,7 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 	}
 
 	// Detect prefix mention
-	if !ctx.IsDirected {
+	if !ctx.IsDirected && len(m.Prefix) > 0 {
 
 		// TODO : Must be changed to support a per-guild user defined prefix
 		if strings.HasPrefix(ctx.Content, m.Prefix) {
