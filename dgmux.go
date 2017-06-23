@@ -6,7 +6,8 @@ package main
 
 import "github.com/bwmarrin/disgord/x/dgmux"
 
-// Register the route multiplexer to a global variable.
+// Router is registered as a global variable to allow easy access to the
+// multiplexer throughout the bot.
 var Router = dgmux.New()
 
 func init() {

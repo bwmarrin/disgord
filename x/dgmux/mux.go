@@ -1,4 +1,4 @@
-// The dgmux package provides a simple Discord message route multiplexer that
+// Package dgmux provides a simple Discord message route multiplexer that
 // parses messages and then executes a matching registered handler, if found.
 // dgMux can be used with both Disgord and the DiscordGo library.
 package dgmux
