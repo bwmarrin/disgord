@@ -18,6 +18,12 @@ Gophers](https://discord.gg/0f1SbxBZjYq9jLBk) chat server.**
 **NOTE** : This is an experimental package and it's likely to have large changes
 breaking it's API and compatibility with previous versions.
 
+The goal with dgMux is to create a fairly straight forward and simple 
+"command router" that can be added to any DiscordGo bot without much fuss. A 
+secondary goal is to keep the route handlers as close to native DiscordGo 
+handlers as possible.  So that each example provided can be used by those
+just learning the DiscordGo API and easily integrated into their own projects.
+
 Some inspiration was taken from the [chi](https://github.com/go-chi/chi) 
 and [httprouter](https://github.com/julienschmidt/httprouter) routers when 
 creating dgMux.
