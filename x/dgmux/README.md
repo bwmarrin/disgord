@@ -1,5 +1,5 @@
 # dgMux 
-[![Go report](http://goreportcard.com/badge/bwmarrin/dgmux)](http://goreportcard.com/report/bwmarrin/dgmux) [![Discord Gophers](https://img.shields.io/badge/Discord%20Gophers-%23info-blue.svg)](https://discord.gg/0f1SbxBZjYq9jLBk)
+[![Discord Gophers](https://img.shields.io/badge/Discord%20Gophers-%23info-blue.svg)](https://discord.gg/0f1SbxBZjYq9jLBk)
 <img align="right" src="https://raw.githubusercontent.com/wiki/bwmarrin/disgord/images/gourd.jpg">
 
 dgMux is a simple Discord message route multiplexer that parses a message and 
