@@ -18,3 +18,6 @@ Gophers](https://discord.gg/0f1SbxBZjYq9jLBk) chat server.**
 
 **NOTE** : This is an experimental package and it's likely to have large changes
 breaking it's API and compatibility with previous versions.
+
+Some parts of dgMux were inspired by the [chi][https://github.com/go-chi/chi] 
+and [httprouter][https://github.com/julienschmidt/httprouter] routers.
