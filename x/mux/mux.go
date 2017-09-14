@@ -1,7 +1,7 @@
-// Package dgmux provides a simple Discord message route multiplexer that
+// Package mux provides a simple Discord message route multiplexer that
 // parses messages and then executes a matching registered handler, if found.
 // dgMux can be used with both Disgord and the DiscordGo library.
-package dgmux
+package mux
 
 import (
 	"fmt"
@@ -36,7 +36,7 @@ type Context struct {
 // HandlerFunc is the function signature required for a message route handler.
 type HandlerFunc func(*discordgo.Session, *discordgo.Message, *Context)
 
-// Mux is the main struct for all dgMux methods.
+// Mux is the main struct for all mux methods.
 type Mux struct {
 	Routes  []*Route
 	Default *Route
@@ -130,13 +130,16 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 	}
 
 	ctx := &Context{
-		Content:   strings.TrimSpace(mc.Content),
-		GuildID:   c.GuildID,
-		IsPrivate: c.IsPrivate,
+		Content: strings.TrimSpace(mc.Content),
+		GuildID: c.GuildID,
+	}
+
+	if c.Type == discordgo.ChannelTypeDM {
+		ctx.IsPrivate = true
 	}
 
 	// Detect Private Message
-	if c.IsPrivate {
+	if c.Type == discordgo.ChannelTypeDM {
 		ctx.IsDirected = true
 	}
 

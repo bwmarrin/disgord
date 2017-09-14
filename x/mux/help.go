@@ -1,4 +1,4 @@
-package dgmux
+package mux
 
 import (
 	"fmt"
