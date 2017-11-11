@@ -66,6 +66,7 @@ func main() {
 	err = Session.Open()
 	if err != nil {
 		log.Printf("error opening connection to Discord, %s\n", err)
+		os.Exit(1)
 	}
 
 	// Wait for a CTRL-C
