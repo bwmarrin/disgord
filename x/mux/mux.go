@@ -1,6 +1,6 @@
 // Package mux provides a simple Discord message route multiplexer that
 // parses messages and then executes a matching registered handler, if found.
-// dgMux can be used with both Disgord and the DiscordGo library.
+// mux can be used with both Disgord and the DiscordGo library.
 package mux
 
 import (
@@ -112,6 +112,11 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 		return
 	}
 
+	// Create Context struct that we can put various infos into
+	ctx := &Context{
+		Content: strings.TrimSpace(mc.Content),
+	}
+
 	// Fetch the channel for this Message
 	var c *discordgo.Channel
 	c, err = ds.State.Channel(mc.ChannelID)
@@ -119,28 +124,20 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 		// Try fetching via REST API
 		c, err = ds.Channel(mc.ChannelID)
 		if err != nil {
-			log.Printf("unable to fetch Channel for Message")
-			return
+			log.Printf("unable to fetch Channel for Message,", err)
+		} else {
+			// Attempt to add this channel into our State
+			err = ds.State.ChannelAdd(c)
+			if err != nil {
+				log.Printf("error updating State with Channel,", err)
+			}
+			// Add Channel info into Context
+			ctx.GuildID = c.GuildID
+			if c.Type == discordgo.ChannelTypeDM {
+				ctx.IsPrivate = true
+				ctx.IsDirected = true
+			}
 		}
-		// Attempt to add this channel into our State
-		err = ds.State.ChannelAdd(c)
-		if err != nil {
-			log.Printf("error updating State with Channel")
-		}
-	}
-
-	ctx := &Context{
-		Content: strings.TrimSpace(mc.Content),
-		GuildID: c.GuildID,
-	}
-
-	if c.Type == discordgo.ChannelTypeDM {
-		ctx.IsPrivate = true
-	}
-
-	// Detect Private Message
-	if c.Type == discordgo.ChannelTypeDM {
-		ctx.IsDirected = true
 	}
 
 	// Detect @name or @nick mentions
