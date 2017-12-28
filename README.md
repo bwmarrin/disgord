@@ -34,10 +34,15 @@ go build
 ./disgord -t BOT_AUTH_TOKEN
 ```
 
-
 ## Documentation
 
-Todo :)
+Bot auth token can be obtained on application settings page in `Bot` section under `Token: click to reveal` link.
+
+To use in `Session.Token` it should be prefixed with `"Bot "`.
+
+Example:
+
+Your bor auth token is `"bla-LBA.bLa_Bl4"` then `BOT_AUTH_TOKEN` for command above is `"Bot bla-LBA.bLa_Bl4"`
 
 ## Contributing
 
