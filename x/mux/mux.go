@@ -135,8 +135,7 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 	// Add Channel info into Context (if we successfully got the channel)
 	if c != nil {
 		if c.Type == discordgo.ChannelTypeDM {
-			ctx.IsPrivate = true
-			ctx.IsDirected = true
+			ctx.IsPrivate, ctx.IsDirected = true, true
 		}
 	}
 
