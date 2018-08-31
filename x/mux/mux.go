@@ -123,18 +123,20 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 		// Try fetching via REST API
 		c, err = ds.Channel(mc.ChannelID)
 		if err != nil {
-			log.Printf("unable to fetch Channel for Message,", err)
+			log.Printf("unable to fetch Channel for Message, %s", err)
 		} else {
 			// Attempt to add this channel into our State
 			err = ds.State.ChannelAdd(c)
 			if err != nil {
-				log.Printf("error updating State with Channel,", err)
+				log.Printf("error updating State with Channel, %s", err)
 			}
-			// Add Channel info into Context
-			if c.Type == discordgo.ChannelTypeDM {
-				ctx.IsPrivate = true
-				ctx.IsDirected = true
-			}
+		}
+	}
+	// Add Channel info into Context (if we successfully got the channel)
+	if c != nil {
+		if c.Type == discordgo.ChannelTypeDM {
+			ctx.IsPrivate = true
+			ctx.IsDirected = true
 		}
 	}
 
