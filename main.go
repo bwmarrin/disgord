@@ -56,12 +56,6 @@ func main() {
 		return
 	}
 
-	// Verify the Token is valid and grab user information
-	Session.State.User, err = Session.User("@me")
-	if err != nil {
-		log.Printf("error fetching user information, %s\n", err)
-	}
-
 	// Open a websocket connection to Discord
 	err = Session.Open()
 	if err != nil {
