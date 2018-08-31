@@ -25,7 +25,6 @@ type Route struct {
 type Context struct {
 	Fields          []string
 	Content         string
-	GuildID         string
 	IsDirected      bool
 	IsPrivate       bool
 	HasPrefix       bool
@@ -132,7 +131,6 @@ func (m *Mux) OnMessageCreate(ds *discordgo.Session, mc *discordgo.MessageCreate
 				log.Printf("error updating State with Channel,", err)
 			}
 			// Add Channel info into Context
-			ctx.GuildID = c.GuildID
 			if c.Type == discordgo.ChannelTypeDM {
 				ctx.IsPrivate = true
 				ctx.IsDirected = true
