@@ -24,7 +24,7 @@ The below assumes you already have a working Go environment, if not please see
 Use go get to download the repository into your Go work environment.
 
 ```sh
-go get github.com/bwmarrin/discordgo
+go get github.com/bwmarrin/disgord
 ```
 
 ### Usage
