@@ -61,7 +61,7 @@ func (m *Mux) Route(pattern, desc string, cb HandlerFunc) (*Route, error) {
 	return &r, nil
 }
 
-// FuzzyMatch attepts to find the best route match for a givin message.
+// FuzzyMatch attempts to find the best route match for a given message.
 func (m *Mux) FuzzyMatch(msg string) (*Route, []string) {
 
 	// Tokenize the msg string into a slice of words
